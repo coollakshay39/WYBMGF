@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7b8cf">
+  <title>Will You Be My Girlfriend?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <div id="heartTiles" class="heart-tiles" aria-hidden="true"></div>
+  <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+
+  <main class="page-shell">
+    <p class="eyebrow">A tiny question, with a very big answer</p>
+    <section id="questionCard" class="question-card" aria-live="polite">
+      <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+      <span class="sparkle sparkle-two" aria-hidden="true">✦</span>
+      <div class="heart-icon" aria-hidden="true">♥</div>
+      <h1>Will you be my girlfriend?</h1>
+      <p id="prompt" class="prompt">I made you a little game because you make everything more fun. 🌷</p>
+      <div id="choices" class="choices" aria-label="Your answer"></div>
+      <p id="progressMessage" class="progress-message">Choose carefully…</p>
+    </section>
+  </main>
+
+  <section id="celebration" class="celebration" aria-hidden="true">
+    <div class="balloon balloon-one">♥</div>
+    <div class="balloon balloon-two">♥</div>
+    <div class="balloon balloon-three">♥</div>
+    <div class="celebration-card">
+      <p class="eyebrow">YAYYYYY!</p>
+      <h2>You just made me the happiest. 💗</h2>
+      <p>Officially my favourite person.</p>
+      <div class="celebration-hearts" aria-hidden="true">💖 ✨ 💕 ✨ 💖</div>
+      <button id="replayButton" class="replay-button" type="button">Play that again</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
