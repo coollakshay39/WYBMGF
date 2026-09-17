@@ -51,6 +51,7 @@ function renderChoices(){
     noButton.addEventListener("click",chooseNo);
     choices.append(noButton);
   }else{
+    questionCard.classList.add("heart-complete");
     prompt.textContent="The heart is complete. There is only one very lovely option left. 💞";
     progressMessage.textContent="Okay, now you really have to pick Yes. ✨";
   }
@@ -71,13 +72,16 @@ function addHeartTile(index){
   const tile=document.createElement("span");
   tile.className="yes-tile";
   tile.textContent="YES";
-  const tileWidth=Math.max(23,Math.min(window.innerWidth*.028,38));
-  const heartWidth=tileWidth*11;
-  const heartHeight=tileWidth*9;
-  const startX=(window.innerWidth-heartWidth)/2;
-  const startY=Math.max(70,(window.innerHeight-heartHeight)/2-12);
-  tile.style.left=`${startX+x*tileWidth}px`;
-  tile.style.top=`${startY+y*tileWidth}px`;
+  const card=questionCard.getBoundingClientRect();
+  // Fill the white card itself: this heart grows from edge to edge inside it.
+  const cell=Math.min(card.width*.086,card.height*.105);
+  const heartWidth=cell*10;
+  const heartHeight=cell*8;
+  const startX=card.left+(card.width-heartWidth)/2;
+  const startY=card.top+(card.height-heartHeight)/2-8;
+  tile.style.setProperty("--tile-size",`${cell*.92}px`);
+  tile.style.left=`${startX+x*cell}px`;
+  tile.style.top=`${startY+y*cell}px`;
   tile.style.animationDelay=`${(index%4)*.02}s`;
   heartTiles.append(tile);
 }
