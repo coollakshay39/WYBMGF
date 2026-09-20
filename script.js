@@ -10,16 +10,21 @@ const context=canvas.getContext("2d");
 
 let noCount=0;
 
-// A simple 13 × 10 heart. Every "No" click turns one point into a little YES tile.
+// A tall, hollow heart outline. Every "No" click adds one YES tile to its edge.
 const heartPattern=[
-  [2,0],[3,0],[6,0],[7,0],
-  [1,1],[2,1],[3,1],[4,1],[5,1],[6,1],[7,1],[8,1],
-  [0,2],[1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],[9,2],
-  [0,3],[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[7,3],[8,3],[9,3],
-  [1,4],[2,4],[3,4],[4,4],[5,4],[6,4],[7,4],[8,4],
-  [2,5],[3,5],[4,5],[5,5],[6,5],[7,5],
-  [3,6],[4,6],[5,6],[6,6],
-  [4,7],[5,7]
+  [3,0],[4,0],[10,0],[11,0],
+  [2,1],[5,1],[9,1],[12,1],
+  [1,2],[6,2],[8,2],[13,2],
+  [0,3],[7,3],[14,3],
+  [0,4],[14,4],
+  [0,5],[14,5],
+  [1,6],[13,6],
+  [2,7],[12,7],
+  [3,8],[11,8],
+  [4,9],[10,9],
+  [5,10],[9,10],
+  [6,11],[8,11],
+  [7,12]
 ];
 
 const messageSteps=[
@@ -73,12 +78,12 @@ function addHeartTile(index){
   tile.className="yes-tile";
   tile.textContent="YES";
   const card=questionCard.getBoundingClientRect();
-  // Fill the white card itself: this heart grows from edge to edge inside it.
-  const cell=Math.min(card.width*.086,card.height*.105);
-  const heartWidth=cell*10;
-  const heartHeight=cell*8;
+  // The outline spans most of the white card while leaving its centre open.
+  const cell=Math.min(card.width*.064,card.height*.066);
+  const heartWidth=cell*15;
+  const heartHeight=cell*13;
   const startX=card.left+(card.width-heartWidth)/2;
-  const startY=card.top+(card.height-heartHeight)/2-8;
+  const startY=card.top+4;
   tile.style.setProperty("--tile-size",`${cell*.92}px`);
   tile.style.left=`${startX+x*cell}px`;
   tile.style.top=`${startY+y*cell}px`;
